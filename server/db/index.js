@@ -3,22 +3,22 @@
 const db = require("./db");
 
 const User = require("./models/User");
-const Category = require("./models/Category");
+const Goal = require("./models/Goal");
 const Habit = require("./models/Habit");
 const Quote = require("./models/Quote");
 
 //associations could go here!
-User.hasMany(Category);
-Category.belongsTo(User);
+User.hasMany(Goal);
+Goal.belongsTo(User);
 
-Category.hasMany(Habit);
-Habit.belongsTo(Category);
+Goal.hasMany(Habit);
+Habit.belongsTo(Goal);
 
 module.exports = {
   db,
   models: {
     User,
-    Category,
+    Goal,
     Habit,
     Quote,
   },

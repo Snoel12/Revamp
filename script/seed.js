@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User },
+  models: { User, Goal, Habit, Quote, Category },
 } = require("../server/db");
 
 /**
@@ -26,6 +26,61 @@ async function seed() {
       password: "123",
       firstName: "Zack",
       lastName: "Thres",
+    }),
+  ]);
+
+  const [fitness, school] = await Promise.all([
+    Goal.create({ userId: users[0].id, name: "fitness" }),
+    Goal.create({ userId: users[0].id, name: "school" }),
+  ]);
+
+  const [run, gym, study, review] = await Promise.all([
+    Habit.create({
+      frequency: "daily",
+      repetitions: 1,
+      duration: 20,
+      name: "running",
+      goalId: fitness.id,
+    }),
+    Habit.create({
+      frequency: "weekly",
+      repetitions: 4,
+      duration: 120,
+      name: "gym",
+      goalId: fitness.id,
+    }),
+    Habit.create({
+      frequency: "daily",
+      repetitions: 2,
+      duration: 60,
+      name: "study",
+      goalId: school.id,
+    }),
+    Habit.create({
+      frequency: "weekly",
+      repetitions: 3,
+      duration: 60,
+      name: "review",
+      goalId: school.id,
+    }),
+  ]);
+
+  const [one, two, three, four] = await Promise.all([
+    Quote.create({
+      text: "Make the most of yourself…. for that is all there is of you.",
+      author: "Ralph Waldo Emerson",
+    }),
+    Quote.create({
+      text: "Change your thoughts and you change your world.",
+      author: "Norman Vincent Peale",
+    }),
+    Quote.create({
+      text: "If we don’t change, we don’t grow. If we don’t grow, we aren’t really living.",
+      author: "Gail Sheehy",
+    }),
+    Quote.create({
+      text: "When we strive to become better than we are, everything around us becomes better too.",
+      author: "Paulo Coelho",
     }),
   ]);
 

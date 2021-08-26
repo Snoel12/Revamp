@@ -6,6 +6,9 @@ const Quote = db.define("quote", {
   text: {
     type: TEXT,
   },
+  author: {
+    type: STRING,
+  },
 });
 
 module.exports = Quote;

@@ -9,9 +9,15 @@ const Habit = db.define("habit", {
   },
   repetitions: {
     type: INTEGER,
+    allowNull: false,
   },
   duration: {
     type: INTEGER,
+    allowNull: false,
+  },
+  name: {
+    type: STRING,
+    allowNull: false,
   },
 });
 

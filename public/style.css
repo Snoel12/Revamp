@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+  font-family: "Apple SD Gothic Neo";
+  background-color: #faf7f7;
 }
 
 a {
@@ -18,4 +19,116 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.grid-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: "nav" "main";
+  grid-template-columns: 40% 70%;
+  grid-template-rows: 1fr;
+}
+
+.nav-container {
+  grid-area: "nav";
+  padding-top: 10px;
+  padding-left: 70px;
+  background-color: #e3e3e3;
+}
+
+.main-container {
+  grid-area: "main";
+}
+
+.nav-container-title {
+  font-size: 30px;
+  margin-bottom: 100px;
+}
+
+.main-container-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 10px;
+  padding-right: 100px;
+}
+
+.header-items {
+  padding-right: 50px;
+  font-size: 22px;
+}
+
+.header-items :last-child {
+  padding: 0;
+}
+
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 45px;
+}
+
+.goals-container-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.goals-title-section {
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 20px;
+}
+
+.goals-add-button {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.goals-add-button img {
+  max-width: 20px;
+  margin-right: 15px;
+}
+
+.goals-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 45px;
+}
+
+.goals-row :last-child {
+  margin-bottom: 0;
+}
+
+.goals-name {
+  text-transform: uppercase;
+}
+
+.goals-actions {
+  display: flex;
+  align-items: center;
+}
+
+.goals-actions img {
+  max-width: 15px;
+
+  margin-right: 6px;
+}
+
+.goals-actions img :last-child {
+  margin: 0;
+}
+
+.registration-page-container {
+  padding-top: 10px;
+}
+
+.registration-page-title {
+  font-size: 30px;
+  padding-bottom: 10px;
+  padding-left: 100px;
 }
