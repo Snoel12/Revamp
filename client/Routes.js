@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Login, Signup } from "./components/AuthForm";
@@ -14,40 +14,58 @@ import Registration from "./components/Registration";
 /**
  * COMPONENT
  */
-class Routes extends Component {
-  async componentDidMount() {
-    await this.props.loadInitialData();
-    await this.props.getQuote();
-    const { user } = this.props;
-    console.log(this.props);
-    await this.props.getGoals(user);
-    console.log(this.props);
-  }
+const Routes = (props) => {
+  // async componentDidMount() {
+  //   await this.props.loadInitialData();
+  //   await this.props.getQuote();
+  //   const { user } = this.props;
+  //   console.log(this.props);
+  //   if (user.id) {
+  //     await this.props.getGoals(user);
+  //     console.log(this.props);
+  //   }
+  // }
+  // async componentDidUpdate(prev) {
+  //   const { user } = this.props;
+  //   if (prev.goals.length !== this.props.goals.length) {
+  //     await this.props.getGoals(user);
+  //   }
+  // }
 
-  render() {
-    const { isLoggedIn } = this.props;
+  // render() {
+  //   const { isLoggedIn } = this.props;
+  useEffect(() => {
+    props.loadInitialData();
+    props.getQuote();
+    const { user } = props;
+    if (user.id) {
+      props.getGoals(user);
+    }
+  }, [props.goals.length, props.user.id]);
 
-    return (
-      <div>
-        {isLoggedIn ? (
-          <div>
-            <Switch>
-              <Route path="/home" component={Home} />
-              <Route exact path="/goals" component={Goals} />
-              <Route exact path="/registration" component={Registration} />
-            </Switch>
-          </div>
-        ) : (
+  const { isLoggedIn } = props;
+
+  return (
+    <div>
+      {isLoggedIn ? (
+        <div>
           <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/home" component={Home} />
+            <Route exact path="/goals" component={Goals} />
+            <Route exact path="/register" component={Registration} />
           </Switch>
-        )}
-      </div>
-    );
-  }
-}
+        </div>
+      ) : (
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+        </Switch>
+      )}
+    </div>
+  );
+};
+// }
 
 /**
  * CONTAINER

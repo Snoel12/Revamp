@@ -18,17 +18,18 @@ class Goals extends Component {
                 button
               </div>
             </div>
-            {goals.map((goal, idx) => {
-              return (
-                <div className="goals-row" key={goal.id}>
-                  <div className="goals-name"> {goal.name} </div>
-                  <div className="goals-actions">
-                    <img src="images/edit.png" />
-                    <img src="images/delete.png" />
+            {goals.length &&
+              goals.map((goal, idx) => {
+                return (
+                  <div className="goals-row" key={goal.id}>
+                    <div className="goals-name"> {goal.name} </div>
+                    <div className="goals-actions">
+                      <img src="images/edit.png" />
+                      <img src="images/delete.png" />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
         <div className="main-container">
