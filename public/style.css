@@ -132,3 +132,41 @@ form div {
   padding-bottom: 10px;
   padding-left: 100px;
 }
+
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-title {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.registration-form-container {
+  justify-content: flex-start;
+  width: 34%;
+  padding-left: 70px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-section label {
+  margin-bottom: 5px;
+  padding-left: 20px;
+}
+
+.input-section input {
+  padding: 5px;
+  border: 2px solid #e3e3e3;
+}
+
+.input-section input:focus {
+  outline: 2px solid #9da631;
+  border: none;
+}

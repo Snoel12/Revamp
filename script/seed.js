@@ -20,12 +20,14 @@ async function seed() {
       password: "123",
       firstName: "Cody",
       lastName: "Uno",
+      email: "cody@google.com",
     }),
     User.create({
       username: "zack",
       password: "123",
       firstName: "Zack",
       lastName: "Thres",
+      email: "zack@google.com",
     }),
   ]);
 
