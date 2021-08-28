@@ -15,6 +15,15 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const habit = await Habit.findByPk(req.params.id);
+    res.json(habit);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //post route
 
 router.post("/", async (req, res) => {
