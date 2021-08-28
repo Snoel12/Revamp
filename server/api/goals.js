@@ -6,6 +6,20 @@ module.exports = router;
 
 //get routes
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const goals = await Goal.findAll({
+      where: {
+        id: req.params.id,
+      },
+      include: Habit,
+    });
+    res.json(goals);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/users/:id", async (req, res, next) => {
   try {
     const goals = await Goal.findAll({

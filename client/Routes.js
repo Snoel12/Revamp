@@ -6,34 +6,16 @@ import Home from "./components/Home";
 import { me } from "./store";
 import { getQuote } from "./store/quotes";
 import { getGoals } from "./store/goals";
+import { Food } from "./components/food/Food";
 
 //importing components
-import Goals from "./components/Goals";
-import Registration from "./components/Registration";
+import { Goals } from "./components/Goals";
+import { Registration } from "./components/Registration";
 
 /**
  * COMPONENT
  */
 const Routes = (props) => {
-  // async componentDidMount() {
-  //   await this.props.loadInitialData();
-  //   await this.props.getQuote();
-  //   const { user } = this.props;
-  //   console.log(this.props);
-  //   if (user.id) {
-  //     await this.props.getGoals(user);
-  //     console.log(this.props);
-  //   }
-  // }
-  // async componentDidUpdate(prev) {
-  //   const { user } = this.props;
-  //   if (prev.goals.length !== this.props.goals.length) {
-  //     await this.props.getGoals(user);
-  //   }
-  // }
-
-  // render() {
-  //   const { isLoggedIn } = this.props;
   useEffect(() => {
     props.loadInitialData();
     props.getQuote();
@@ -52,14 +34,14 @@ const Routes = (props) => {
           <Switch>
             <Route path="/home" component={Home} />
             <Route exact path="/goals" component={Goals} />
-            <Route exact path="/register" component={Registration} />
+            <Route exact path="/nutrition" component={Food} />
           </Switch>
         </div>
       ) : (
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <Route path="/signup" component={Registration} />
         </Switch>
       )}
     </div>
